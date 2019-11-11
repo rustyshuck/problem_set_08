@@ -22,7 +22,7 @@
 #       superheroes in "sh_info.csv".
 
 import csv
-#import json
+import json
 #import os
 
 # PROBLEM 1
@@ -89,13 +89,14 @@ print(f"\n\nProblem 1 test: {info_data}")
 # {'name': 'Nick Fury', 'powers': ['weapons_master', 'longevity']}
 
 # BEGIN PROBLEM 2 (can be accomplished in 3-5 lines of code)
-
-powers = None
+filename = "sh_powers.json"
+with open(filename, 'r') as file_obj:
+    powers = json.load(file_obj)
 
 # END PROBLEM 2
 
 # BEGIN TEST FOR PROBLEM 2 (Uncomment me when you're ready!)
-#print(f"\n\nProblem 2 test: {powers['Nick Fury']}")
+print(f"\n\nProblem 2 test: {powers['Nick Fury']}")
 # END TEST FOR PROBLEM 2
 
 
@@ -116,13 +117,17 @@ powers = None
 
 # BEGIN PROBLEM 3 (can be accomplished in 3 - 5 lines of code)
 
-def get_info():
-    pass
+def get_info(row, header):
+    mydict = dict(zip(header, row))
+    return mydict
+
+
+
 
 # END PROBLEM 3
 
 # BEGIN TEST FOR PROBLEM 3 (Uncomment me when you're ready!)
-#print(f"\n\nProblem 3 test: {get_info(info_data[27],info_header)}")
+print(f"\n\nProblem 3 test: {get_info(info_data[27],info_header)}")
 # END TEST FOR PROBLEM 3
 
 
@@ -174,10 +179,10 @@ def get_info():
 # Finally, use the json library to write <heroes> to a new file called "heroes.json".
 
 # START PROBLEM 4 (can be accomplished in 7-10 lines of code)
-heroes = {} # This should be your first line of code for this problem.
+heroes = {}
 
 # Write your first for-loop below (see the instructions for clarification):
-
+for info in info_data:
 
 # Add the list of powers with another for-loop:
 
